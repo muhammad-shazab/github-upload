@@ -1,0 +1,97 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.block-btn{
+	width:450px;
+	float:left;
+	margin-left:20px;
+	margin-top:30px
+}
+#search-result{
+	margin-left:80px;
+	padding-top:30px;
+	 font: 40px Arial, Times New Roman;
+	text-decoration:underline;
+
+}
+#product-display{
+	  margin: auto;
+	  width: 50%;
+	  border: 3px solid green;
+	  padding: 10px;
+	  margin-top:170px;
+	  background-color:#f7ac16;
+	   overflow: auto;
+	   border-radius:15px;
+
+}
+
+#product-image{
+	float:left;
+}
+#product-detail{
+	float:left;
+	margin-left:20px
+}
+
+#strip{
+	width:100%;
+	border-top:2px solid green;
+	overflow:auto;
+	border-bottom:2px solid green;
+	margin-top:20px;
+	padding:20px 0px;
+	vertical-align:center;
+	font-weight:70px;
+	font-color:pink;
+	padding-left:20px;
+	background-color:#73694f;
+}
+#strip p{
+	font-style:italic;
+	font-weight:700;
+	font-size:150%
+}
+body{
+	background-color: #a6a39a;
+}
+
+.main-body{
+	background-color: #a6a39a;
+}
+.products{
+	background-color: #a6a39a;
+}
+.navbar{
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+  width: 100%;
+}
+.modal{
+	z-index:9999
+}
+
+
+.search-form{
+	margin-top:50px;
+}
+#navbar-nav{
+	margin-top:60px;
+	margin-left:80px;
+	font-size:18px;
+}
+.navbar-nav{
+	margin-left:80px;
+	font-size:18px;
+}
+.navbar-nav li a:hover{
+	font-size:19px;
+	font-color:white
+}
+.radios{
+	margin-left:20px
+}
+

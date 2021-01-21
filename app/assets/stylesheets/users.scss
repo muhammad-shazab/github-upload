@@ -1,0 +1,76 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.main-body{
+	background-color: #a6a39a;
+}
+.user-products{
+	background-color: #a6a39a;
+	margin-top:150px;
+}
+.search-products{
+	margin-top:100px
+}
+
+input,
+textarea {
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  padding: 10px;
+}
+
+#increment input[type="button"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+#increment input::-webkit-outer-spin-button,
+#increment input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#increment {
+  clear: both;
+  margin: 15px 0;
+  position: relative;
+}
+
+#increment input[type='button'] {
+  background-color: #eeeeee;
+  min-width: 38px;
+  width: auto;
+  transition: all 300ms ease;
+}
+
+#increment .button-minus,
+#increment .button-plus {
+  font-weight: bold;
+  height: 38px;
+  padding: 0;
+  width: 38px;
+  position: relative;
+}
+
+#increment .quantity-field {
+  position: relative;
+  height: 38px;
+  left: -6px;
+  text-align: center;
+  width: 62px;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 0 5px;
+  resize: vertical;
+}
+
+.button-plus {
+  left: -13px;
+}
+
+#increment input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+}
+

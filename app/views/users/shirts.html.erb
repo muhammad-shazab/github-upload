@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>shirts</title>
+  </head>
+  <body>
+    <div>
+      <%= render 'top_nav'%>
+      
+    </div>
+    <div class="products" style="margin-top: 160px">
+        <div class="container">
+          <% @shirt_variants.each_slice(4) do |shirts|%>
+            <div class="row">
+              <% shirts.each do |v|%>
+                <%if v.quantity > 0 %>
+                  <div class="col-md-3" id="product">
+                        <%product=Product.find_by id: v.product_id %>
+                    <div class="product-img" style="height: 250px;margin-top: 10px">
+                        <%=link_to image_tag(v.product_image,:style=>"height:250px; width:180px"),user_path(product)%>
+                    </div><br>
+                    <div>
+                        <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
+                        <%= label :price, "Rs #{v.price}/-"%><br>
+                    </div>
+                  </div>
+                <%end%>
+                
+              <%end%>
+            </div>
+            
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<%= render 'top_nav'%>
+<div class="notice" style="margin-top: 200px"><%=notice %></div> 
+<div style="margin-top: 200px;margin-left: 50px">
+  <p ><h1>Completed Orders:</h1></p>
+</div>
+<div style="width: 90%">  
+  <table  class="table table-hover" style="margin: 50px;margin-right: 50px">
+      <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Gender</th>
+        <th>Quantity</th>
+        <th>Payment</th>
+        <th>Customer Email</th>
+      </tr>
+      <tbody id="book_table">
+      <% @orders.each do |order| %>
+          <tr class="table-active">
+            <td><%= order.name %></td>
+            <td><%= order.color%></td>
+            <td><%=order.gender%></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.payment.to_i*order.quantity.to_i %></td>
+            <td><%@customers.each do |customer|%>
+                <%if order.customer==customer.id %>
+                   <%=customer.email%>
+                <%end%>
+              <%end%>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+
+    </table>
+  </div>

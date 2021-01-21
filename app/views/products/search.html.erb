@@ -1,0 +1,60 @@
+<%= render 'top_nav'%>
+<div class="main-body">
+	<p id="search-result">Search Result</p>
+	<div class="products">
+	        <div class="container" id="mrow">
+	          <% @var.each_slice(4) do |var|%>
+	            <div class="row">
+	              <% var.each do |v|%>
+	                <%if v.quantity > 0 %>
+	                  <div class="col-md-3" id="display">                      
+	                      <div>                         
+	                          <%=image_tag v.product_image,:style=>"height:250px; width:180px;margin-top:80px"%><br>
+	                          <%product=Product.find_by id: v.product_id %>
+	                          <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
+	                          <%= label :color,v.color %><br>
+	                          <%= label :price, "#{v.price}/-"%><br>
+	                          <%= label :gender, v.gender %><br>
+	                          <%= label :quantity, v.quantity %><br>
+	                          <%= link_to 'Remove Product', product_path(product),class: 'btn btn-secondary',
+	                            method: :delete,
+	                            data: { confirm: 'Are you sure?' } %>
+	                      </div>                  
+	                  </div>
+	                <%end%>                
+	              <%end%>
+	            </div>           
+	          <%end%>
+	        </div>
+	</div>
+
+	<div class="products">
+	        <div class="container">
+	          <% @pro.each_slice(4) do |pros|%>
+	            <div class="row">
+	              <% pros.each do |p|%>
+	               <% Variant.all.each do |variant|%>
+	               	<% sproduct=Product.find_by id: variant.product_id%>
+	               	 <%if sproduct.category==p.category%>
+	               	 	<div class="col-md-3" id="display">                      
+	                      <div>                         
+	                          <%=image_tag variant.product_image,:style=>"height:250px; width:180px;margin-top:80px"%><br>
+	                          <%product=Product.find_by id: variant.product_id %>
+	                          <%= label :brand_name,"#{variant.brand_name}`s #{product.category}" %><br>
+	                          <%= label :color,variant.color %><br>
+	                          <%= label :price, "#{variant.price}/-"%><br>
+	                          <%= label :gender, variant.gender %><br>
+	                          <%= label :quantity, variant.quantity %><br>
+	                          <%= link_to 'Remove Product', product_path(product),class: 'btn btn-secondary',
+	                            method: :delete,
+	                            data: { confirm: 'Are you sure?' } %>
+	                      </div>                  
+	                  </div>
+	               	 <%end%>
+	               <%end%>      
+	                <%end%>                
+	            </div>           
+	          <%end%>
+	        </div>
+	</div>
+</div>

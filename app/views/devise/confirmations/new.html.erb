@@ -1,0 +1,29 @@
+<%= render 'devise/shared/top_nav'%>
+<div style="width: 500px;margin: auto;background-color:#adad79;padding: 30px;margin-top: 170px">
+	<h2>Resend confirmation instructions</h2>
+
+	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= render "devise/shared/error_messages", resource: resource %>
+
+	  <div class="form-group">
+	    <%= f.label :email %><br />
+	    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),class: 'form-control'  %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Resend confirmation instructions", class: 'btn btn-primary' %>
+	  </div>
+	<% end %>
+	<div style="margin-top: 10px">
+		<%- if controller_name != 'sessions' %>
+	      <%= link_to "Log in", new_session_path(resource_name),:style=>"margin-left:10p;text-decoration:none" %>
+	    <% end %>|
+
+	    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+	      <%= link_to "Sign up", new_registration_path(resource_name),:style=>"margin-left:5px;text-decoration:none" %>
+	    <% end %>|
+	    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+	        <%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin-left:5px;margin-right:3px;text-decoration:none" %>
+	    <% end %>
+	</div>
+</div>

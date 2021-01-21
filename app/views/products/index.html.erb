@@ -1,0 +1,47 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+    <title>elo</title>
+  </head>
+  <body>
+    <div>
+      <%= render 'top_nav'%>   
+    </div>
+    <div class="main-body">
+      <div class="btn-parent" style="width: 100%;margin-top: 148px">  
+        <div class="block-btn"> 
+       
+            <button type="button" class="btn btn-primary  btn-lg btn-block" data-toggle="modal" data-target="#addproduct" style="background-color: #bdb199">Add New Products</button>
+            <%=render 'add_product_modal' %>
+        </div>
+      </div>
+      <br><br><br><br><br><br>
+      <div class="products">
+        <div class="container" id="mrow">
+          <% @total_variants.each_slice(4) do |variants|%>
+            <div class="row">
+              <% variants.each do |v|%>
+                <%if v.quantity > 0 %>
+                  <div class="col-md-3" id="display" style="margin-top: 10px;margin-bottom: 5px">                     
+                      <div>                         
+                          <%=image_tag v.product_image,:style=>"height:250px; width:180px"%><br>
+                          <%product=Product.find_by id: v.product_id %>
+                          <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
+                          <%= label :color,v.color %><br>
+                          <%= label :price, "#{v.price}/-"%><br>
+                          <%= label :gender, v.gender %><br>
+                          <%= label :quantity, v.quantity %><br>
+                          <%= link_to 'Remove Product', product_path(product),class: 'btn btn-secondary',
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' } %>
+                      </div>                  
+                  </div>
+                <%end%>                
+              <%end%>
+            </div>           
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
