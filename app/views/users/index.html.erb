@@ -10,7 +10,7 @@
     <div class="main-body">
       <div class="user-products">
         <div class="container" id="mrow">
-          <% Variant.all.each_slice(4) do |variants|%>
+          <% @total_variants.each_slice(4) do |variants|%>
             <div class="row">
               <% variants.each do |v|%>
                 <%if v.quantity > 0 %>
