@@ -1,9 +1,8 @@
 class ProductsController < ApplicationController
 	def index
 		@products=Product.all
-		@total_variants=Variant.all
 		@p=Product.new
-		
+		@total_variants=Variant.all
 		@sizes=[]
 		if params[:category].present?
 			if params[:category]=="Shirt"
@@ -77,7 +76,6 @@ class ProductsController < ApplicationController
 		#redirect_to :method=>:post,:controller => 'ordres', :action => 'create',:params=>var_hash
 		if Order.create(customer: var_hash[:customer], name: var_hash[:name],payment: var_hash[:payment],color: var_hash[:color],gender: var_hash[:gender],quantity: params[:quantity])
 			redirect_to orders_path
-		flash[:notice]="#{params[:counter]}"
 		else
 			redirect_to trousers_path
 		end
@@ -115,6 +113,7 @@ class ProductsController < ApplicationController
 	end
 
 	def search
+		@total_variants=Variant.all
 		if params[:search].blank?
 			redirect_to products_path and return
 		else

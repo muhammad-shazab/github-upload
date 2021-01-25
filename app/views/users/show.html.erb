@@ -6,7 +6,7 @@
 <body>
 	<%= render 'top_nav'%>
 	<div id="product-display">
-		<% Variant.all.each do |v|%>
+		<% @total_variants.each do |v|%>
 			<%if v.product_id == @product.id.to_i%>				
 				<div id="product-image">
 					<%=image_tag v.product_image,:style=>"height:300px; width:250px"%><br>
@@ -40,7 +40,7 @@
 	</div>
 	<div class="container" id="mrow">
 		<%var_arr=[]%>
-		<% Variant.all.each do |var|%>
+		<% @total_variants.each do |var|%>
 		    <%product=Product.find_by id: var.product_id%>
 			<%if @product.category==product.category%>
 			  <%var_arr << var%>

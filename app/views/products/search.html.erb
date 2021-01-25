@@ -33,7 +33,7 @@
 	          <% @pro.each_slice(4) do |pros|%>
 	            <div class="row">
 	              <% pros.each do |p|%>
-	               <% Variant.all.each do |variant|%>
+	               <% @total_variants.each do |variant|%>
 	               	<% sproduct=Product.find_by id: variant.product_id%>
 	               	 <%if sproduct.category==p.category%>
 	               	 	<div class="col-md-3" id="display">                      

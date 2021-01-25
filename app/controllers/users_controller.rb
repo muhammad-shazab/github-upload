@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	def index
 		@products=Product.all
-		@admin=Admin.first
+		@total_variants=Variant.all
 	end
 	def new
 		@admin=Admin.first
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	def show
 		@product=Product.find(params[:id])
 		@current_var=Variant.find_by product_id: params[:id]
+		@total_variants=Variant.all
 	end
 	def verify_admin
 		@admin=Admin.first
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
 	end
 
 	def search
+		@total_variants=Variant.all
 		if params[:search].blank?
 			redirect_to users_path and return
 		else
