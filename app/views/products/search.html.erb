@@ -27,32 +27,31 @@
 	          <%end%>
 	        </div>
 	</div>
-
 	<div class="products">
 	        <div class="container">
 	          <% @pro.each_slice(4) do |pros|%>
 	            <div class="row">
 	              <% pros.each do |p|%>
-	               <% @total_variants.each do |variant|%>
-	               	<% sproduct=Product.find_by id: variant.product_id%>
-	               	 <%if sproduct.category==p.category%>
-	               	 	<div class="col-md-3" id="display">                      
-	                      <div>                         
-	                          <%=image_tag variant.product_image,:style=>"height:250px; width:180px;margin-top:80px"%><br>
-	                          <%product=Product.find_by id: variant.product_id %>
-	                          <%= label :brand_name,"#{variant.brand_name}`s #{product.category}" %><br>
-	                          <%= label :color,variant.color %><br>
-	                          <%= label :price, "#{variant.price}/-"%><br>
-	                          <%= label :gender, variant.gender %><br>
-	                          <%= label :quantity, variant.quantity %><br>
-	                          <%= link_to 'Remove Product', product_path(product),class: 'btn btn-secondary',
-	                            method: :delete,
-	                            data: { confirm: 'Are you sure?' } %>
-	                      </div>                  
-	                  </div>
-	               	 <%end%>
-	               <%end%>      
-	                <%end%>                
+	                <% @total_variants.each do |variant|%>
+	               	    <% sproduct=Product.find_by id: variant.product_id%>
+	               	    <%if sproduct.category==p.category%>
+		               	 	<div class="col-md-3" id="display">                      
+		                      <div>                         
+		                          <%=image_tag variant.product_image,:style=>"height:250px; width:180px;margin-top:80px"%><br>
+		                          <%product=Product.find_by id: variant.product_id %>
+		                          <%= label :brand_name,"#{variant.brand_name}`s #{product.category}" %><br>
+		                          <%= label :color,variant.color %><br>
+		                          <%= label :price, "#{variant.price}/-"%><br>
+		                          <%= label :gender, variant.gender %><br>
+		                          <%= label :quantity, variant.quantity %><br>
+		                          <%= link_to 'Remove Product', product_path(product),class: 'btn btn-secondary',
+		                            method: :delete,
+		                            data: { confirm: 'Are you sure?' } %>
+		                      </div>                  
+		                  </div>
+	               	    <%end%>
+	                <%end%>      
+	              <%end%>                
 	            </div>           
 	          <%end%>
 	        </div>
