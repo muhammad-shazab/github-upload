@@ -1,6 +1,6 @@
-class Product < ApplicationRecord
-	has_many :variants, dependent: :destroy
-	validates :category, presence: true
-	accepts_nested_attributes_for :variants
+# frozen_string_literal: true
 
+class Product < ApplicationRecord
+  has_many :variants, dependent: :destroy
+  validates :category, presence: true
 end

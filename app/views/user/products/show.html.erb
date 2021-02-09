@@ -1,0 +1,50 @@
+
+	<%= render 'top_nav'%>
+	<div id="product-display">				
+				<div id="product-image">
+					<%=image_tag @current_var.product_image,:style=>"height:300px; width:250px"%><br>
+				</div>
+				<div id="product-detail" class="product-details">
+					<%product=@current_var.product%>
+					<%=label :brand_name, "#{@current_var.brand_name}'s #{product.category}"%><br>
+					<%=label :color ,"#{@current_var.color}" %><br>
+					<%=label :price ,"#{@current_var.price}/-" %><br>
+					<%=label :gender, "#{@current_var.gender}"%>
+					<%if @current_var.quantity >0%>
+					    <br><br>
+						<%= form_tag buy_admin_variant_url, :method=>"patch" do %>
+							<div class="input-group" id="increment">
+							  <input type="button" value="-" class="button-minus" name="quantity" data-field="quantity" id="minus-button">
+							  <%=text_field_tag :counter,params[:category],{value: 1,max: "#{@current_var.quantity}",id: 'counter-field',name: 'quantity',autocomplete: :off,readonly: true, type: 'text',:style=>"width:50px;height:38px"} %> 
+							  <input type="button" data-max_size="" value="+" class="button-plus" name="quantity" data-field="quantity" id="plus-button">	
+							</div>
+							<%=button_tag 'Buy',class: 'btn btn-secondary'%>
+						<%end%>
+					<%else%>
+					  <br>
+                              <p><i><em> sold out</em></i></p>	
+					<%end%>
+						<%= info%>			
+					
+					
+				</div>
+	</div>
+	<div id="strip">
+		<p>Variants:</p>
+	</div>
+	<div class="container" id="mrow">
+          <% @recomended_vars.each_slice(4) do |variants|%>
+            <div class="row">
+              <% variants.each do |v|%>
+                  <div class="col-md-3" id="display" style="margin-top: 10px;margin-bottom: 5px">
+                      <div> 
+                          <%product=v.product%>                 
+                          <%=link_to(image_tag(v.product_image,:style=>"height:250px; width:180px"),user_product_path(v))%><br>
+                          <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
+                          <%= label :price, "Rs #{v.price}/-"%><br>
+                      </div>                  
+                  </div>               
+              <%end%>
+            </div>           
+          <%end%>
+    </div>

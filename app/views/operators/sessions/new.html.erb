@@ -1,0 +1,35 @@
+<%= render 'devise/shared/top_nav'%>
+<div style="width: 500px;margin: auto;background-color:#adad79;padding: 30px;margin-top: 170px">
+  <p><h1>Login</h1></p>
+  <div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :email,"Email:" %><br />
+        <%= f.email_field :email, {class: 'form-control' }%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password,"Password:" %><br />
+        <%= f.password_field :password, {autocomplete: "current-password" ,class: 'form-control'}%>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="form-check">
+          <%= f.check_box :remember_me,{class: 'form-check-input'} %>
+          <%= f.label :remember_me,{class: 'form-check-label'} %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in",{class: 'btn btn-primary',:style=>"margin-top:10px"} %>
+      </div>
+    <% end %>
+    <div style="margin-top: 10px">
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin-left:5px;margin-right:3px;text-decoration:none" %>
+      <% end %>
+      <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to "Didn't receive confirmation instructions?", new_operator_confirmation_path(resource_name),:style=>"margin-left:5px;text-decoration:none" %><br />
+    <% end %>
+    </div>
+  </div>
+</div>

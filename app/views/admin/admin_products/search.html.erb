@@ -1,0 +1,29 @@
+<%= render 'top_nav'%>
+<div class="main-body">
+	<p id="search-result">Search Result</p>
+	<div class="products">
+	        <div class="container" id="mrow">     
+	          <% @search_var.each_slice(4) do |vars|%>
+	            <div class="row" style="margin-top: 100px">
+	              <% vars.each do |v|%>                
+		               	 	<div class="col-md-3" id="display">                      
+		                      <div> 
+		                      	  <% sproduct= v.product%>
+		                      	  <%=image_tag v.product_image,:style=>"height:250px; width:180px"%><br>
+		                          <%= label :category,"#{v.brand_name}`s #{sproduct.category}" %><br>
+		                          <%= label :color, v.color %><br>
+		                          <%= label :price, "#{v.price}/-"%><br>
+		                          <%= label :gender, v.gender %><br>
+		                          <%= label :quantity, "Remaining #{v.quantity}" %><br>
+		                          <%= link_to 'Remove Product',admin_admin_product_path(sproduct),class: 'btn btn-secondary',
+		                            method: :delete,
+		                            data: { confirm: 'Are you sure?' } %><br>
+                                  <%= link_to 'Show Orders', admin_admin_product_path(v) %>
+		                      </div>                  
+		                  </diV>      
+	              <%end%>                
+	            </div>           
+	          <%end%>
+	        </div>
+	</div>
+</div>

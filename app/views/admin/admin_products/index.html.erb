@@ -1,0 +1,41 @@
+  <div>
+      <%= render 'top_nav'%>   
+    </div>
+    <div class="main-body">
+      <div class="btn-parent" style="width: 35%;margin-top: 180px">  
+        <div class="block-btn1" style="float: left;">  
+            <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addproduct" style="background-color: #bdb199; margin-left: 150px">Add New Products Category</button>
+            <%=render 'add_product_modal' %>
+        </div >
+        <div class="block-btn2" style="float: right;">
+            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addvariant" style="background-color: #bdb199">Add Product Variants</button>
+            <%=render 'add_variant_modal' %>
+        </div>
+      </div>
+      <br><br><br>
+      <div class="products">
+        <div class="container" id="mrow">
+          <% @total_variants.each_slice(4) do |variants|%>
+            <div class="row">
+              <% variants.each do |v|%>        
+                  <div class="col-md-3" id="display" style="margin-top: 10px;margin-bottom: 5px">
+                      <div>                         
+                          <%=image_tag v.product_image,:style=>"height:250px; width:180px"%><br>
+                          <%product=v.product%>
+                          <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
+                          <%= label :color,v.color %><br>
+                          <%= label :price, "#{v.price}/-"%><br>
+                          <%= label :gender, v.gender %><br>
+                          <i> <%= label :quantity, "Remaining #{v.quantity}"%></i><br>
+                          <%= link_to 'Remove Product', admin_admin_product_path(product),class: 'btn btn-secondary',
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' } %><br>
+                            <%= link_to 'Show Orders', admin_admin_product_path(v) %>
+                      </div>                  
+                  </div>               
+              <%end%>
+            </div>           
+          <%end%>
+        </div>
+      </div>
+    </div>

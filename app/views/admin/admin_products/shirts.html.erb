@@ -1,0 +1,34 @@
+<div>
+      <%= render 'top_nav'%>
+      
+    </div>
+    <div class="products" style="margin-top: 160px">
+        <div class="container">
+          <% @shirt_variants.each_slice(4) do |shirts|%>
+            <div class="row">
+              <% shirts.each do |v|%>
+                  <div class="col-md-3" id="product">
+                    <div class="product-img" style="height: 250px;margin-top: 10px">
+                      <%=image_tag v.product_image,:style=>"height:250px; width:180px"%>
+                    </div><br>
+                    <div>
+                        <%product=v.product%>
+                        <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
+                        <%= label :color,v.color %><br>
+                        <%= label :price, "#{v.price}/-"%><br>
+                        <%= label :gender, v.gender %><br>
+                        <%= label :quantity, "Remaining #{v.quantity}" %><br>
+                        <%= link_to 'Remove Product', admin_admin_product_path(product),class: 'btn btn-secondary',
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %><br>
+                          <%= link_to 'Show Orders', admin_admin_product_path(v) %>
+                    </div>
+                  </div>
+                
+              <%end%>
+            </div>
+            
+          <%end%>
+        </div>
+      </div>
+    </div>

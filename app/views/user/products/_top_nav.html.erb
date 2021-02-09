@@ -1,0 +1,63 @@
+<div class="mynav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="div1" style="height: 100%">
+      <%=link_to image_tag("elo.png",alt: "elo logo") ,user_products_path,:style=>'float:left'%>
+    </div>
+    <div class="div1" style="width: 100%">
+      <div class="upper" style="width: 100%;height: 50%">
+        <% if customer_signed_in? %>
+          <ul class="navbar-nav" style="float: right">
+            <li class="nav-item">
+              <%= link_to 'Your History with us' , your_history_path,class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Out' , destroy_customer_session_path,class: 'nav-link' ,method: :delete,
+                            data: { confirm: 'Are you sure to sign out?' }%>
+            </li>
+            <%= link_to 'switch to admin view',admin_admin_products_path,{class: 'nav-link',:style=>"font-style:italic ;color:white;text-decoration:none"}%>
+           
+          </ul>
+        <% else %>
+          <ul class="navbar-nav" style="float: right">
+            <li class="nav-item ">
+              <%= link_to 'Login' , new_customer_session_path,class: 'nav-link' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'Sign Up' , new_customer_registration_path,class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'switch to admin view',admin_admin_products_path,{class: 'nav-link',:style=>"font-style:italic ;color:white;text-decoration:none"}%>
+            </li>
+          </ul>
+        <% end%>
+        
+      </div>
+      <div class="div2 collapse navbar-collapse" id="navbarColor01" style="width: 100%;height: 40%">
+        <ul class="navbar-nav mr-auto"  id="navbar-nav" style="float: left;">
+          <li class="nav-item ">
+            <%= link_to 'Shirts' , u_shirts_path,class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Trousers' , u_trousers_path,class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Shoes' , u_shoes_path,class: 'nav-link' %>
+          </li>
+        </ul>
+        <div class="search-form"> 
+          <%= form_tag(u_search_path,:method=>"get",class: 'form-inline my-2 my-lg-0') do%>
+             <div class="input-group">
+               <%= search_field_tag :search,params[:search], class: "form-control search-input", placeholder: "Search...",:style=>'width:400px'%>
+               <div class="input-group-btn">
+                 <%= button_tag "search",class: 'btn btn-secondary my-2 my-sm-0',name: nil,:style=>'background-color:#f7ac16'%>
+               </div>
+             </div>
+          <%end%>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+</div>
