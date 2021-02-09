@@ -1,0 +1,60 @@
+            <div class="container">  
+             <%= form_for([:admin,@var],url: admin_variants_path) do |f| %>
+                  <% if @var.errors.any? %>
+                    <div id="error_explanation">
+                      <h2>
+                        <%= pluralize(@var.errors.count, "error") %> prohibited
+                        this book from being saved:
+                      </h2>
+                      <ul>
+                        <% @var.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                <div class="form-group">
+                  <%= f.label :category, "Select Category" %><br>
+                   <%= f.select(:product_id, Product.all.collect {|p| [p.category,p.id]},{},{class: 'form-control',id: 'category-select'} )%>
+                </div>
+
+                <div class="form-group">
+                      <%= label :brand_name, 'Brand' %>
+                      <%= f.text_field :brand_name,  {class: 'form-control',id: 'brand-field',required: true}%>
+                    </div>
+                    <div class="form-group">
+                      <%= label :price, 'Price' %>
+                      <%= f.number_field :price,  {class: 'form-control',id:'price-field',required: true}%>
+                    </div>
+                    <div class="form-group">
+                      <%= label :quantity, 'Quantity' %>
+                      <%= f.number_field :quantity, {:class=> 'form-control',:id=>'quantity-field',required: true}%>
+                    </div>
+                    <%= label :gender, 'Gender' %><br>
+                    <div class="form-check form-check-inline">
+                      <div class="radio-first">
+                        <%= f.radio_button :gender, 'male', :checked => true ,class: 'radio-button'%> 
+                        <%= label :gender, 'Male' %>
+                      </div>
+                      <div class="radios">
+                        <%= f.radio_button :gender, 'female',class: 'radio-button' %>
+                        <%= label :gender, 'Female' %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <%= label :color, 'Color' %>
+                      <%= f.text_field :color, {class: 'form-control',id: 'color-field',required: true}%>
+                    </div>
+                    <%= label :size, 'Size' %><br>
+                     <%=f.select :size, options_for_select(8..60),{},{class: "form-control",id:"size-select",required: true}%>
+                     
+                    <div class="form-group">
+                      <%= f.label :product_image %>
+                      <%= f.file_field :product_image,  {class: 'form-control',id: 'image-field',required: true} %>
+                    </div>
+                 <div class="modal-footer">
+                  <%= f.submit "Add Variant",class: "btn btn-primary"%>
+                  <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              <%end%>
+            </div> 

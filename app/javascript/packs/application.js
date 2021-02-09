@@ -7,9 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-//require("packs/search")
-require("packs/increment")
-require("packs/formcall")
+require("js/size_ajaxcall")
+require("js/buy_quantity")
 
 
 

@@ -1,0 +1,34 @@
+
+	<div style="margin-top: 180px">
+		<%= render 'top_nav'%>  
+		<div style="width: 70%;margin:auto">
+			<p><h3>All of your orders:</h3></p>
+			<table  class="table table-condensed" style="margin: 50px;margin-right: 50px">
+			    <tr>
+			      <th>Product Name</th>
+			      <th>Color</th>
+			      <th>Gender</th>
+			      <th>Price</th>
+			      <th>Payment</th>
+			      <th>Customer Email</th>
+			      <th>Order Date</th>
+			    </tr>
+			    <tbody id="book_table">
+			    <% @your_orders.each do |order| %>
+			        <tr class="table-active">
+			        	<%customer=order.customer%>
+			        	<%variant=order.variant%>
+			          <td><%="#{variant.brand_name}'s #{variant.product.category}"%></td>
+			          <td><%= variant.color%></td>
+			          <td><%= variant.gender%></td>
+			          <td><%= variant.price%></td>
+			          <td><%= order.quantity * variant.price%></td>
+			          <td><%= customer.email%></td>
+			          <td><%=order.created_at%></td>
+			        </tr>
+			    <% end %>
+			    </tbody>
+
+	        </table>
+		</div>
+	</div>

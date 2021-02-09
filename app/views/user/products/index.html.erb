@@ -1,0 +1,24 @@
+    <div>
+      <%= render 'top_nav'%>   
+    </div>
+    <div class="main-body">
+      <div class="user-products">
+        <div class="container" id="mrow">
+          <% @total_variants.each_slice(4) do |variants|%>
+            <div class="row">
+              <% variants.each do |v|%>
+                  <div class="col-md-3" id="display" style="margin-top: 20px;margin-bottom: 5px">                     
+                      <div>         
+                      	  <%product=v.product%>                
+                          <%=link_to image_tag(v.product_image,:style=>"height:250px; width:180px"),user_product_path(v)%><br>
+                          <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
+                          <%= label :price, "Rs #{v.price}/-"%><br>
+                      </div>                  
+                  </div>
+                                 
+              <%end%>
+            </div>           
+          <%end%>
+        </div>
+      </div>
+    </div>
