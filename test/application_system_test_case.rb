@@ -1,5 +1,8 @@
+<<<<<<< Updated upstream
 # frozen_string_literal: true
 
+=======
+>>>>>>> Stashed changes
 require 'test_helper'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase

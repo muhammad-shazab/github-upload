@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 # frozen_string_literal: true
+=======
+require 'test_helper'
+>>>>>>> Stashed changes
 
 require 'test_helper'
 

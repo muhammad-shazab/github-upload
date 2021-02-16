@@ -14,9 +14,14 @@
               <%= link_to 'Sign Out' , destroy_customer_session_path,class: 'nav-link' ,method: :delete,
                             data: { confirm: 'Are you sure to sign out?' }%>
             </li>
+<<<<<<< Updated upstream:app/views/operators/shared/_top_nav.html.erb
             <li class="nav-item">
               <%= link_to 'switch to admin view',operator_session_path,{class: 'nav-link',:style=>"font-style:italic ;color:white;text-decoration:none"}%>
             </li>
+=======
+            <%= link_to 'switch to admin view',operator_session_path,{class: 'nav-link',:style=>"font-style:italic ;color:white;text-decoration:none"}%>
+           
+>>>>>>> Stashed changes:app/views/users/_top_nav.html.erb
           </ul>
         <% else %>
           <ul class="navbar-nav" style="float: right">
@@ -28,7 +33,11 @@
               <%= link_to 'Sign Up' , new_customer_registration_path,class: 'nav-link' %>
             </li>
             <li class="nav-item">
+<<<<<<< Updated upstream:app/views/operators/shared/_top_nav.html.erb
                <%= link_to 'switch to admin view',operator_session_path,{class: 'nav-link',:style=>"font-style:italic ;color:white;text-decoration:none"}%>
+=======
+              <%= link_to 'switch to admin view',operator_session_path,{class: 'nav-link',:style=>"font-style:italic ;color:white;text-decoration:none"}%>
+>>>>>>> Stashed changes:app/views/users/_top_nav.html.erb
             </li>
           </ul>
         <% end%>
@@ -48,7 +57,7 @@
           </li>
         </ul>
         <div class="search-form"> 
-          <%= form_tag(search_path,:method=>"get",class: 'form-inline my-2 my-lg-0') do%>
+          <%= form_tag(u_search_path,:method=>"get",class: 'form-inline my-2 my-lg-0') do%>
              <div class="input-group">
                <%= search_field_tag :search,params[:search], class: "form-control search-input", placeholder: "Search...",:style=>'width:400px'%>
                <div class="input-group-btn">
