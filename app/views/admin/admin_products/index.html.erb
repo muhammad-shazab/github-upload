@@ -1,20 +1,23 @@
   <div>
+    
       <%= render 'top_nav'%>   
     </div>
     <div class="main-body">
-      <div class="btn-parent" style="width: 35%;margin-top: 180px">  
+      <div class="btn-parent" style="width: 35%;margin-top: 180px" id="btns" >  
         <div class="block-btn1" style="float: left;">  
-            <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addproduct" style="background-color: #bdb199; margin-left: 150px">Add New Products Category</button>
+            <button  class="btn btn-primary" id="new-category" data-toggle="modal" data-target="#addproduct" style="background-color: #bdb199; margin-left: 150px">Add New Products Category</button>
             <%=render 'add_product_modal' %>
         </div >
         <div class="block-btn2" style="float: right;">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addvariant" style="background-color: #bdb199">Add Product Variants</button>
+            <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#addvariant" style="background-color: #bdb199" id="new-variant">Add Product Variants</button>
             <%=render 'add_variant_modal' %>
         </div>
+        
       </div>
       <br><br><br>
       <div class="products">
         <div class="container" id="mrow">
+          <%removeno = 1%>
           <% @total_variants.each_slice(4) do |variants|%>
             <div class="row">
               <% variants.each do |v|%>        
@@ -27,10 +30,11 @@
                           <%= label :price, "#{v.price}/-"%><br>
                           <%= label :gender, v.gender %><br>
                           <i> <%= label :quantity, "Remaining #{v.quantity}"%></i><br>
-                          <%= link_to 'Remove Product', admin_admin_product_path(product),class: 'btn btn-secondary',
+                          <%= link_to 'Remove Product', admin_admin_product_path(product),class: 'btn btn-secondary',id: "remove#{removeno}",
                             method: :delete,
                             data: { confirm: 'Are you sure?' } %><br>
                             <%= link_to 'Show Orders', admin_admin_product_path(v) %>
+                            <%removeno += 1%>
                       </div>                  
                   </div>               
               <%end%>

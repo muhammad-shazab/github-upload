@@ -9,13 +9,8 @@
               <% variants.each do |v|%>
                   <div class="col-md-3" id="display" style="margin-top: 20px;margin-bottom: 5px">                     
                       <div>         
-<<<<<<< Updated upstream:app/views/user/products/index.html.erb
                       	  <%product=v.product%>                
                           <%=link_to image_tag(v.product_image,:style=>"height:250px; width:180px"),user_product_path(v)%><br>
-=======
-                      	  <%product=Product.find_by id: v.product_id %>                
-                          <%=link_to image_tag(v.product_image,:style=>"height:250px; width:180px"),user_path(v)%><br>
->>>>>>> Stashed changes:app/views/users/index.html.erb
                           <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
                           <%= label :price, "Rs #{v.price}/-"%><br>
                       </div>                  

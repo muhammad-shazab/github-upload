@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
-<<<<<<< Updated upstream
   belongs_to :customer
   belongs_to :variant
   validates :quantity, presence: true
@@ -13,6 +12,4 @@ class Order < ApplicationRecord
     new_quantity = var.quantity - quantity
     var.update_attribute(:quantity, new_quantity)
   end
-=======
->>>>>>> Stashed changes
 end

@@ -9,23 +9,16 @@
               <% shirts.each do |v|%>
                   <div class="col-md-3" id="product">
                     <div class="product-img" style="height: 250px;margin-top: 10px">
-<<<<<<< Updated upstream:app/views/user/products/shirts.html.erb
                       <%product=v.product %>
                         <%=link_to image_tag(v.product_image,:style=>"height:250px; width:180px"),user_product_path(v)%>
-=======
-                        <%=link_to image_tag(v.product_image,:style=>"height:250px; width:180px"),user_path(v)%>
->>>>>>> Stashed changes:app/views/users/shirts.html.erb
                     </div><br>
                     <div>
                         <%= label :brand_name,"#{v.brand_name}`s shirt" %><br>
                         <%= label :price, "Rs #{v.price}/-"%><br>
                     </div>
                   </div>
-                 
-                
               <%end%>
-            </div>
-            
+            </div>   
           <%end%>
         </div>
       </div>

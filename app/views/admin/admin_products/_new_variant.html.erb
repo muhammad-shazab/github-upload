@@ -33,11 +33,11 @@
                     <%= label :gender, 'Gender' %><br>
                     <div class="form-check form-check-inline">
                       <div class="radio-first">
-                        <%= f.radio_button :gender, 'male', :checked => true ,class: 'radio-button'%> 
+                        <%= f.radio_button :gender, 'male', :checked => true ,class: 'radio-button',id: 'male-radio'%> 
                         <%= label :gender, 'Male' %>
                       </div>
                       <div class="radios">
-                        <%= f.radio_button :gender, 'female',class: 'radio-button' %>
+                        <%= f.radio_button :gender, 'female',class: 'radio-button',id: 'female-radio' %>
                         <%= label :gender, 'Female' %>
                       </div>
                     </div>
@@ -49,8 +49,8 @@
                      <%=f.select :size, options_for_select(8..60),{},{class: "form-control",id:"size-select",required: true}%>
                      
                     <div class="form-group">
-                      <%= f.label :product_image %>
-                      <%= f.file_field :product_image,  {class: 'form-control',id: 'image-field',required: true} %>
+                      <%= f.label :product_image, 'Product Image' %>
+                      <%= f.file_field :product_image,  {class: 'form-control',id: 'imageupload',required: true} %>
                     </div>
                  <div class="modal-footer">
                   <%= f.submit "Add Variant",class: "btn btn-primary"%>

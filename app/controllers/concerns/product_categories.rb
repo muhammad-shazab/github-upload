@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 module ProductCategories
-  include ActiveSupport::Concern
+  extend ActiveSupport::Concern
+  
   def shirts
     @shirt_variants = Variant.joins(:product).where('category LIKE ?', 'Shirts')
   end

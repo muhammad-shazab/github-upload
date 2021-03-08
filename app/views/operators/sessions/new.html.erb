@@ -1,7 +1,7 @@
 <%= render 'devise/shared/top_nav'%>
 <div style="width: 500px;margin: auto;background-color:#adad79;padding: 30px;margin-top: 170px">
   <p><h1>Login</h1></p>
-  <div>
+  <div id="operator-login-form">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
         <%= f.label :email,"Email:" %><br />
@@ -20,7 +20,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Log in",{class: 'btn btn-primary',:style=>"margin-top:10px"} %>
+        <%= f.submit "Log in",{class: 'btn btn-primary',:style=>"margin-top:10px",id: 'login-btn'} %>
       </div>
     <% end %>
     <div style="margin-top: 10px">

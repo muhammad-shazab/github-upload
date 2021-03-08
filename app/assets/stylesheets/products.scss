@@ -2,13 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-<<<<<<< Updated upstream
 .btn-parent{
 	margin-left:80px;
-=======
+}
 .block-btn{
 	margin-left:20px;
->>>>>>> Stashed changes
 	margin-top:30px
 }
 #search-result{
@@ -16,7 +14,6 @@
 	padding-top:30px;
 	 font: 40px Arial, Times New Roman;
 	text-decoration:underline;
-
 }
 #product-display{
 	  margin: auto;
@@ -27,7 +24,6 @@
 	  background-color:#f7ac16;
 	   overflow: auto;
 	   border-radius:15px;
-
 }
 
 #product-image{
@@ -35,9 +31,8 @@
 }
 #product-detail{
 	float:left;
-	margin-left:20px
+	margin-left:20px;
 }
-
 #strip{
 	width:100%;
 	border-top:2px solid green;
@@ -54,7 +49,7 @@
 #strip p{
 	font-style:italic;
 	font-weight:700;
-	font-size:150%
+	font-size:150%;
 }
 body{
 	background-color: #a6a39a;
@@ -74,10 +69,8 @@ body{
   width: 100%;
 }
 .modal{
-	z-index:9999
+	z-index:9999;
 }
-
-
 .search-form{
 	margin-top:50px;
 }
@@ -92,9 +85,8 @@ body{
 }
 .navbar-nav li a:hover{
 	font-size:19px;
-	font-color:white
+	font-color:white;
 }
 .radios{
-	margin-left:20px
-}
-
+	margin-left:20px;
+	}
