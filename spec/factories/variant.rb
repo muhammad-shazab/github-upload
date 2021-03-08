@@ -6,5 +6,7 @@ FactoryBot.define do
     color {'black'}
     size {'small'}
     brand_name {'brand'}
+    product_image { Rack::Test::UploadedFile.new('app/assets/images/elo.png', 'image/png') }
+    association :product
   end
 end

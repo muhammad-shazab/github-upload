@@ -3,13 +3,15 @@
 	<p id="search-result">Search Result</p>
 	<div class="products">
 	        <div class="container" id="mrow">
+	            	<%image_id = 1%>
 	          <% @search_var.each_slice(4) do |vars|%>
 	            <div class="row">
 	              <% vars.each do |v|%>
 	                  <div class="col-md-3" id="display">                      
 	                      <div>
 	                          <%product= v.product%>                         
-	                          <%=link_to image_tag(v.product_image,:style=>"height:250px; width:180px;margin-top:80px"),user_product_path(v)%><br>
+	                          <%=link_to image_tag(v.product_image,{:style=>"height:250px; width:180px;margin-top:80px",id: "product_image#{image_id}" }),user_product_path(v)%><br>
+	                          <%image_id += 1%>
 	                          <%= label :brand_name,"#{v.brand_name}`s #{product.category}" %><br>
 	                          <%= label :price, "Rs #{v.price}/-"%><br>
 	                      </div>                  
